@@ -8,6 +8,7 @@
     if($ventas == null){
         $numeroventas = count($ventas);
         $numerodeeventos = 0;
+        $evento = null;
         for($x = 0; $x<$numeroventas; $x++){
             $boleto = Boleto::obtenerInfoBoleto($ventas[$x]['fk_boletoele']);
             while ($while = mysqli_fetch_array($boleto)){
