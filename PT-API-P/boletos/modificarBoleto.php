@@ -41,7 +41,7 @@
 
     $response = new Result();
   
-    if(){ 
+    if(mysqli_error($conexion)){ 
         $response->resultado = 'ERROR';
     }
     else{
