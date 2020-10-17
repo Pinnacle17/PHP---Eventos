@@ -1,6 +1,6 @@
 <?php
     require("../headers.php");
-    require("../modelo/ClaseBoleto.php");
+    require("../BD.php");
     require("../modelo/ClaseEvento.php");
     $dia = date("Y-m-d");
     $hora = date("h:i:s");
@@ -13,10 +13,4 @@
             Evento::UpdateEstadoEvento($id_evento, 3); 
         }
     }
-
-
-
-    
-    
-    
 ?>

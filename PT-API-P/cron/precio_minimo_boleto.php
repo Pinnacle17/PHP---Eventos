@@ -1,5 +1,6 @@
 <?php
     require("../headers.php");
+    require("../BD.php");
     require("../modelo/ClaseEvento.php");
     require("../modelo/ClaseBoleto.php");
     $select_eventos=Evento::obtenerDatosEvento(1);
@@ -28,6 +29,4 @@
         }
         UpdatePrecioEvento($precio_min_bol, $id_evento[$y]);
     }
-
-
 ?>  
