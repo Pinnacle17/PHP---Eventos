@@ -2,7 +2,7 @@
     require("../headers.php");
     require("../modelo/ClaseEvento.php");
     require("../modelo/ClaseBoleto.php");
-    $select_eventos=Evento::obtenerDatosEvento(2);
+    $select_eventos=Evento::obtenerDatosEvento(1);
     $x = 0;
     while($while_select_eventos = mysqli_fetch_array($select_eventos)){
         $id_evento[$x] = $while_select_eventos["id_evento"];

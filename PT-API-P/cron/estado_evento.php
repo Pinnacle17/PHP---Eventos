@@ -4,7 +4,7 @@
     require("../modelo/ClaseEvento.php");
     $dia = date("Y-m-d");
     $hora = date("h:i:s");
-    $eventos_actuales = Evento::obtenerDatosEvento(2);
+    $eventos_actuales = Evento::obtenerDatosEvento(1);
     while($while_eventos_actuales = mysqli_fetch_array($eventos_actuales)){
         $id_evento = $while_eventos_actuales["id_evento"];
         $fecha_termino = $while_eventos_actuales["dia_conclusion_evento"];

@@ -39,7 +39,7 @@
         $json = json_encode($eventos);
         echo $json;
     }
-    $json = json_encode(null);
+    $json = json_encode(null);//no mandaste nada, retorna 0
     echo $json;
 
 ?>
