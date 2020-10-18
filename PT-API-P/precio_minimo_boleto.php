@@ -28,7 +28,7 @@
                 $precio_min_bol = $precio_bol;
             }
         }
-        UpdatePrecioEvento($precio_min_bol, $eventos_actuales["id_evento"]);
+        Evento::UpdatePrecioEvento($precio_min_bol, $eventos_actuales["id_evento"]);
     }
     }
 ?>  

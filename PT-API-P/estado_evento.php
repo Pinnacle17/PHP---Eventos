@@ -11,7 +11,7 @@
         $id_evento = $eventos_actuales["id_evento"];
         $fecha_termino = $eventos_actuales["dia_conclusion_evento"];
         $hora_de_termino = $eventos_actuales["hora_conclusion_evento"];
-        if(($fecha_termino > $dia) || ($fecha_termino == $dia && $hora>$hora_de_termino)){
+        if(($fecha_termino < $dia) || ($fecha_termino == $dia && $hora>$hora_de_termino)){
             Evento::UpdateEstadoEvento($id_evento, 3); 
         }
     }  
