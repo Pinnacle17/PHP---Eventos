@@ -3,7 +3,7 @@
     class PromoFecha extends Boleto{
 
         public static function buscarpromocion($id_boleto){
-            $dia = $fecha = date("Y-m-d");
+            $dia = date("Y-m-d");
           $consulta = "SELECT * FROM promo_fec WHERE fec_ini_pro >= '$dia' AND fec_fin_pro <= '$dia' AND fk_boleto_fec = '$id_boleto' AND estado_promo = '1'"; 
           $resultado = BD::consultaSelect($consulta); 
           return $resultado;
