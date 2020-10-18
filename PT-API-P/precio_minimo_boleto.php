@@ -32,8 +32,9 @@
                 $precio_min_bol = $precio_bol;
             }
         }
-        unset($precio_min_bol);
         Evento::UpdatePrecioEvento($precio_min_bol, $eventos_actuales["id_evento"]);
+        unset($precio_min_bol);
+
     }
     }
 ?>  
