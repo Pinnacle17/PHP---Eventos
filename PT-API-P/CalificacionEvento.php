@@ -1,6 +1,6 @@
 <?php
-    require_once("headers.php");
-    require_once("BD.php");
+    require("headers.php");
+    require("BD.php");
     $fecha = date("d-m-Y");
     $fecha = date("d-m-Y",strtotime($fecha."- 1 month"));
     $fecha = date("d-m-Y",strtotime($fecha."- 1 year"));

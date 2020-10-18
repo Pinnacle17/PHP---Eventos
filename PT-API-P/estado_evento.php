@@ -1,7 +1,7 @@
 <?php
-    require_once("headers.php");
-    require_once("BD.php");
-    require_once("modelo/ClaseEvento.php");
+    require("headers.php");
+    require("BD.php");
+    require("modelo/ClaseEvento.php");
     $dia = date("Y-m-d");
     $hora = date("h:i:s");
     $consulta_eventos_actuales = "SELECT *FROM evento WHERE estado_evento = '1'";
