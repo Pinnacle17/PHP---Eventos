@@ -13,12 +13,18 @@
     if(mysqli_num_rows($registros) <= 0){
         echo null;
     }else{
+        $x = 0;
         while ($resultado = mysqli_fetch_array($registros)){
-            $promos[] = $resultado;
+        $promos[] = $resultado;
+        $id_boleto = $promos[$x]['fk_boleto_ref'];
+        $promos[$x]['fk_boleto_ref'] = Boleto::obtenerNombreBoleto($id_boleto);
+        $x++;
         }
-        $id_boleto = $promos['fk_boleto_ref'];
-        $promos['fk_boleto_ref'] = Boleto::obtenerNombreBoleto($id_boleto);
-        $json = json_encode($promos);
-        echo $json;
+    
+    
+    $json = json_encode($promos);
+
+    echo $json;
+        
     }
 ?>
