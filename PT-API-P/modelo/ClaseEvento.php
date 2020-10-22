@@ -3,7 +3,7 @@
     class Evento extends BD{
 
         public static function UpdatePrecioEvento($precio_bol, $id_evento){
-            $consulta = "UPDATE evento SET precio_minimo_boleto = '$precio_bol' WHERE id_evento = '$id_evento'";
+            $consulta = "UPDATE evento SET precio_eve = '$precio_bol' WHERE id_evento = '$id_evento'";
             $resultado = self::consultaSelect($consulta);
             return $resultado;
         }
