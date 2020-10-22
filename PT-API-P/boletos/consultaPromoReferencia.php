@@ -4,7 +4,7 @@
     $conexion = conexion();
 
     class Result {}
-    
+
     $response = new Result();
 
     $boleto = mysqli_real_escape_string($conexion, $_POST['boleto']);

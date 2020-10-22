@@ -15,6 +15,7 @@
             $entrega = $ventas[$x]['estado_entrega'];
             $resultado[$x]['fec_ven'] = $ventas[$x]['fec_ven'];
             $resultado[$x]['sub_ven'] = $ventas[$x]['sub_ven'];
+            $resultado[$x]['link_pago'] = $ventas[$x]['link_pago'];
             $pago = $ventas[$x]['pago'];
             if($pago == 1){
                 $resultado[$x]['pago'] = "Pagado";

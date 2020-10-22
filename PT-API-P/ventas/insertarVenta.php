@@ -174,6 +174,7 @@
         $response->resultado = 'ERROR';
     }else{
         $response->resultado = 'OK';
+        $response->id_venta = $id_venta;
     }
     echo json_encode($response); 
 ?>

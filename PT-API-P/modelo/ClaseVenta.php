@@ -111,6 +111,7 @@
                 $elementos = 0;
                 while ($while = mysqli_fetch_array($resultado)){
                     $venta[$elementos]["id_venta"] = $while["id_venta"];
+                    $venta[$elementos]["link_pago"] = $while["link_pago"];
                     $venta[$elementos]["tipo_ven"] = $while["tipo_ven"];
                     $venta[$elementos]["estado_entrega"] = $while["estado_entrega"];
                     $venta[$elementos]["edad_ven"] = $while["edad_ven"];

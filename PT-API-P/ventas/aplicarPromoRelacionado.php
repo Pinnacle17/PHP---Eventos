@@ -20,7 +20,7 @@
     $z = 0;//indica que no hay promociones
     if($elementosVenta == 2){
             $response->mensaje = "No existe la venta indicada";
-            $response->estado = -1;
+            $response->estado = 0;
     }else{
         $cantidad_carrito = count($carrito);
         $cantidad_elementosVenta = count($elementosVenta);
