@@ -1,17 +1,41 @@
 <?php
     require("../headers.php");
     require("../conexion.php");
+    require_once('../../vendor/autoload.php');
     $conexion = conexion();
 
-    $id = mysqli_real_escape_string($conexion,$_POST['id']);
+    Openpay::setId('m1pu00vqwwcbxnrranoc');
+    Openpay::setApiKey('sk_1152adfcc54c446ab713011e529ff1af');
+    $openpay = Openpay::getInstance('m1pu00vqwwcbxnrranoc', 'sk_1152adfcc54c446ab713011e529ff1af', 'MX');
+
+    $id_fb = mysqli_real_escape_string($conexion,$_POST['id']);
     $correo =  mysqli_real_escape_string($conexion,$_POST['correo']);
     $celular =  mysqli_real_escape_string($conexion,$_POST['celular']);
     $celularext =  mysqli_real_escape_string($conexion,$_POST['celularExt']);
     $nacimiento =  mysqli_real_escape_string($conexion,$_POST['nacimiento']);
 
-    $consulta = "UPDATE usuario SET correo = '$correo', celular = '$celular', celular_ext = '$celularext', fec_nac = '$nacimiento', tipo_usuario = '1' WHERE id_facebook = '$id'";
+    $nombre = mysqli_real_escape_string($conexion,$_GET['nombre']);
+    $apellido = mysqli_real_escape_string($conexion,$_GET['apellido']);
+
+    $consulta = "UPDATE usuario SET correo = '$correo', celular = '$celular', celular_ext = '$celularext', fec_nac = '$nacimiento', tipo_usuario = '1' WHERE id_facebook = '$id_fb'";
     //EJECUTA LA SENTENCIA SQL
-    mysqli_query($conexion,$consulta) or die (mysqli_error($conexion));;
+    mysqli_query($conexion,$consulta) or die (mysqli_error($conexion));
+
+    $consultaS = "SELECT id_usuario FROM usuario WHERE id_facebook = '$id_fb'";
+    //EJECUTA LA SENTENCIA SQL
+    $resultado = mysqli_query($conexion,$consultaS) or die (mysqli_error($conexion));
+
+    while($res = mysqli_fetch_array($resultado)){
+        $id = $res['id_usuario'];
+    }
+
+    $customerData = array(
+        'external_id' => $id,
+        'name' => $nombre,
+        'last_name' => $apellido,
+        'email' => $correo,
+        'phone_number' => $celular);
+    $customer = $openpay->customers->add($customerData);
 
     class Result {}
     
