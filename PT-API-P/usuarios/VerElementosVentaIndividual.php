@@ -33,6 +33,4 @@
         $mensaje = "No hay elementos registrados";
         echo json_encode($mensaje);
     }
-    
-
 ?>

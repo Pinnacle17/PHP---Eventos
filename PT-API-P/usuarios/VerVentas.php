@@ -17,11 +17,7 @@
             $resultado[$x]['sub_ven'] = $ventas[$x]['sub_ven'];
             $resultado[$x]['link_pago'] = $ventas[$x]['link_pago'];
             $pago = $ventas[$x]['pago'];
-            if($pago == 1){
-                $resultado[$x]['pago'] = "Pagado";
-            }else{
-                $resultado[$x]['pago'] = "Pendiente de pago";
-            }
+            
             if($entrega == 0){
                 $resultado[$x]['entrega'] = "No ha sido tomado por ningun repartidor";
             }else if($entrega == 1){
