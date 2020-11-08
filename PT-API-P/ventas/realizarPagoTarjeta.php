@@ -12,9 +12,9 @@
     $total = mysqli_real_escape_string($conexion,$_GET['total']);
     $order_id = mysqli_real_escape_string($conexion,$_GET['id_venta']);
 
-    Openpay::setId('m1pu00vqwwcbxnrranoc');
-    Openpay::setApiKey('sk_1152adfcc54c446ab713011e529ff1af');
-    $openpay = Openpay::getInstance('m1pu00vqwwcbxnrranoc', 'sk_1152adfcc54c446ab713011e529ff1af', 'MX');
+    Openpay::setId('mdyezendqaez49nh3lmp');
+    Openpay::setApiKey('sk_fc541a3702494747a9864a2597d7fea5');
+    $openpay = Openpay::getInstance('mdyezendqaez49nh3lmp', 'sk_fc541a3702494747a9864a2597d7fea5', 'MX');
 
     $findDataRequest = array(
         'external_id' => strval($id)

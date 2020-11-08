@@ -4,9 +4,9 @@
     require_once('../../vendor/autoload.php');
     $conexion = conexion();
 
-    Openpay::setId('m1pu00vqwwcbxnrranoc');
-    Openpay::setApiKey('sk_1152adfcc54c446ab713011e529ff1af');
-    $openpay = Openpay::getInstance('m1pu00vqwwcbxnrranoc', 'sk_1152adfcc54c446ab713011e529ff1af', 'MX');
+    Openpay::setId('mdyezendqaez49nh3lmp');
+    Openpay::setApiKey('sk_fc541a3702494747a9864a2597d7fea5');
+    $openpay = Openpay::getInstance('mdyezendqaez49nh3lmp', 'sk_fc541a3702494747a9864a2597d7fea5', 'MX');
 
     $id_fb = mysqli_real_escape_string($conexion,$_POST['id']);
     $correo =  mysqli_real_escape_string($conexion,$_POST['correo']);
