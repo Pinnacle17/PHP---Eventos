@@ -176,7 +176,7 @@
         }
 
         public static function Fechaventa($fecha){
-            $consulta = "SELECT *FROM venta WHERE fec_ven = '$fecha'";
+            $consulta = "SELECT pago, id_venta FROM venta WHERE fec_ven = '$fecha'";
             $resultado = BD::consultaSelect($consulta);
             if(mysqli_num_rows($resultado) >= 1){
                 $elementos = 0;
@@ -206,5 +206,19 @@
             }
             return $venta;
         }
+
+        public static function Diaventa($id_venta){
+            $consulta = "SELECT fec_ven FROM venta WHERE id_venta = '$id_venta'";
+            $resultado = BD::consultaSelect($consulta);
+            if(mysqli_num_rows($resultado) >= 1){
+                while ($while = mysqli_fetch_array($resultado)){
+                    $venta["fec_ven"] = $while["fec_ven"];
+                }
+            }else{
+                $venta = null;
+            }
+            return $venta;
+        }
+
     }
 ?>
