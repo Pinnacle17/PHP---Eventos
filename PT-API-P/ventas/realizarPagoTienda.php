@@ -8,6 +8,8 @@
     class Result {}
     $response = new Result();
 
+    date_default_timezone_set('UTC');
+
     $nombre_usuario = mysqli_real_escape_string($conexion,$_POST['firstName']);
     $apellido_usuario = mysqli_real_escape_string($conexion,$_POST['lastName']);
     $correo = mysqli_real_escape_string($conexion,$_POST['correo']);
@@ -15,8 +17,10 @@
     $id = mysqli_real_escape_string($conexion,$_POST['id_usuario']);
     
     $total = mysqli_real_escape_string($conexion,$_GET['total']);
-    $fecha_limite = mysqli_real_escape_string($conexion,$_GET['fecha']);
     $order_id = mysqli_real_escape_string($conexion,$_GET['id_venta']);
+
+    $fecha = mktime(0, 0, 0, date("m")  , date("d")+4, date("Y"));
+    $fecha_limite = date('c', $fecha);
 
     Openpay::setId('m1pu00vqwwcbxnrranoc');
     Openpay::setApiKey('sk_1152adfcc54c446ab713011e529ff1af');
@@ -30,6 +34,7 @@
     $customer = $customerList[0];
     $cargoInfo = array(
         'order_id' => $order_id,
+        'due_date' => $fecha_limite,
         'method' => 'store',
         'amount' => $total,
         'description' => 'Cargo a tienda');
