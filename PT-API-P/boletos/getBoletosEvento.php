@@ -1,11 +1,9 @@
 <?php
     require("../headers.php");
     require("../conexion.php");
-    require("../BD.php");
-    require("../modelo/ClaseEvento.php");
     $conexion = conexion();
 
-    $registros = mysqli_query($conexion, "SELECT * FROM boleto WHERE fk_evento_bol = $_GET[id_evento] WHERE estado_boleto = '1'");
+    $registros = mysqli_query($conexion, "SELECT * FROM boleto WHERE fk_evento_bol = $_GET[id_evento]");
 
     if(mysql_num_rows($registros) > 0){
         $boletos = [];
@@ -14,11 +12,6 @@
         }
     }else{
         $boletos = null;
-    }
-    
-
-    if($boletos == null){
-        Evento::UpdateEstadoEvento($id_evento, 0);
     }
     echo json_encode($boletos);
 
