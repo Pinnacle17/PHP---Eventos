@@ -7,5 +7,5 @@
 
     $id_evento = $_GET['id_evento'];
 
-    Evento::UpdateEstadoEvento($id_evento, 2);
+    Evento::UpdateEstadoEvento($id_evento, 1);
 ?>

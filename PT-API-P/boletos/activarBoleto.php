@@ -5,7 +5,7 @@
     require("../modelo/ClaseBoleto.php");
     $conexion = conexion();
     
-    Boleto::UpdateEstadoBoleto($id_boleto, 0);
+    Boleto::UpdateEstadoBoleto($id_boleto, 1);
 
     class Result {}
 
