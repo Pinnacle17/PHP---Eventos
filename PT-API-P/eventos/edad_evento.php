@@ -30,6 +30,5 @@
     if(!(isset($resultado))){
         $resultado = null;
     }
-    echo json_encode($resultado);
-    
+    echo json_encode($resultado);  
 ?>

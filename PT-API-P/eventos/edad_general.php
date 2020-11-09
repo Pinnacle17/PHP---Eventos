@@ -6,11 +6,11 @@
     $resultado = BD::consultaSelect($consulta);
     if(mysqli_num_rows($resultado) > 0){
         while ($row = mysqli_fetch_row($resultado)) {
-            $resultado[$row[1]]["cantidad"] = $row[0];
+            $edad[$row[1]]["cantidad"] = $row[0];
         }
     }else{
-        $resultado = null;
+        $edad = null;
     }
-    echo json_encode($resultado); 
+    echo json_encode($edad); 
     
 ?>

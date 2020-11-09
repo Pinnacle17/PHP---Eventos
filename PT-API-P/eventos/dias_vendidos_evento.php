@@ -38,6 +38,8 @@
             }
         }
            
+    }else{
+        $final = null;
     }
     echo json_encode($final);
     
