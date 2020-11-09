@@ -41,7 +41,7 @@
         
     $cargo = $customer->charges->create($cargoInfo);
 
-    $recibo = "https://sandbox-dashboard.openpay.mx/paynet-pdf/"."m1pu00vqwwcbxnrranoc"."/".$cargo->serializableData['payment_method']->reference;
+    $recibo = "https://sandbox-dashboard.openpay.mx/paynet-pdf/"."mdyezendqaez49nh3lmp"."/".$cargo->serializableData['payment_method']->reference;
 
     $consulta = "UPDATE venta SET link_pago = '$recibo' WHERE id_venta = '$order_id'";
     mysqli_query($conexion,$consulta) or die (mysqli_error($conexion));
