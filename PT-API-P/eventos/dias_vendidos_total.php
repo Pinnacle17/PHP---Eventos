@@ -33,6 +33,6 @@
     }else{
         $resultado = null;
     }
-
+    echo json_encode($resultado);
 
 ?>

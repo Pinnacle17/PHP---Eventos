@@ -19,9 +19,9 @@
                 $edades[$edad]['cantidad'] = $edades[$edad]['cantidad'] + $cantidad;
             }
         }
-        return $edades;
     }else{
-        return null;
+        $edades = null;
     }
     
+    echo json_encode($edades)
 ?>
