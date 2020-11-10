@@ -8,7 +8,7 @@
         while ($row = mysqli_fetch_row($resultado)) {
             $compras["cantidad_boletos"] = $row[1];
             $compras["ventas"] = $row[0];
-            $compras["resultado"] = bcdiv($row[1], $row[0], 2);
+            $compras["resultado"] = $compras["cantidad_boletos"]/$compras["ventas"];
         }
     }else{
         $compras = null;
