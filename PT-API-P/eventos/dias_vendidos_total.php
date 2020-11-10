@@ -31,8 +31,8 @@
 
         
     }else{
-        $resultado = null;
+        $final = null;
     }
-    echo json_encode($resultado);
+    echo json_encode($final);
 
 ?>

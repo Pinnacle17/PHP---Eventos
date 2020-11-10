@@ -7,8 +7,8 @@
 
     $response = new Result();
 
-    $boleto = mysqli_real_escape_string($conexion, $_POST['boleto']);
-    $boleto_referencia = mysqli_real_escape_string($conexion, $_POST['boletoReferencia']);
+    $boleto = mysqli_real_escape_string($conexion, $_GET['boleto']);
+    $boleto_referencia = mysqli_real_escape_string($conexion, $_GET['boletoRef']);
 
     $consulta = "SELECT *FROM promo_eve WHERE fk_boleto_eve = '$boleto' AND fk_boleto_ref = '$boleto_referencia'";
     $registros = mysqli_query($conexion, $consulta);

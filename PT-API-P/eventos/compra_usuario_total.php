@@ -6,14 +6,13 @@
     $resultado = BD::consultaSelect($consulta);
     if(mysqli_num_rows($resultado) > 0){
         while ($row = mysqli_fetch_row($resultado)) {
-            $resultado = $row[1]/$row[0];
-            $resultado["cantidad_boletos"] = $row[1];
-            $resultado["ventas"] = $row[0];
-            $resultado["resultado"] = round($resultado);
+            $compras["cantidad_boletos"] = $row[1];
+            $compras["ventas"] = $row[0];
+            $compras["resultado"] = bcdiv($row[0], $row[1], 2);
         }
     }else{
-        $resultado = null;
+        $compras = null;
     }
-    echo json_encode($resultado); 
+    echo json_encode($compras); 
     
 ?>
