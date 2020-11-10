@@ -13,6 +13,7 @@
         $id_boletos[$numerodeboletos]["id_boleto"] = $while["id_boleto"];
         $numerodeboletos++;
     }
+    $resultado = [];
     for($x=0;$x<$numerodeboletos;$x++){
         $elementoventa = Venta::buscarelementosventaboleto($id_boletos[$x]["id_boleto"]);
         $cantidadelementoventa = count($elementoventa);

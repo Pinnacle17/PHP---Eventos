@@ -1,6 +1,6 @@
 <?php
-    require("../../headers.php");
-    require("../../conexion.php"); 
+    require("../headers.php");
+    require("../conexion.php"); 
     $conexion = conexion();
     $id_publicacion = mysqli_real_escape_string($conexion, $_GET['id_publicacion']);
     $consulta_select_imgs = "SELECT *FROM imagen_pub WHERE fk_publicacion = '$id_publicacion'";

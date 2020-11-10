@@ -1,6 +1,6 @@
 <?php
-    require("../../headers.php");
-    require("../../conexion.php"); 
+    require("../headers.php");
+    require("../conexion.php"); 
     $conexion = conexion();
     $id_publicacion = mysqli_real_escape_string($conexion, $_POST['id']);
     if(!empty($_FILES['imgsPublicacion'])){

@@ -6,6 +6,7 @@
     $id_evento = $_GET['id_evento'];
     $boletos = Boleto::obtenerIdBoletoEvento($id_evento);
     if(mysqli_num_rows($boletos) > 0){
+        $resultado = [];
         while ($while = mysqli_fetch_array($boletos)){
             $elementoventa = Venta::buscarelementosventaboleto($while["id_boleto"]);
             if($elementoventa != null){

@@ -9,10 +9,11 @@
     $resultado = BD::consultaSelect($consulta);
     if(mysqli_num_rows($resultado) >= 1){
         $elementos = 0;
+        $edades = [];
         while ($while = mysqli_fetch_array($resultado)){
             $edad = $while["edad_ven"];
             $cantidad = $while["cantidad_ven"];
-            if($edades[$edad]['cantidad'] == null){
+            if(!(isset($edades[$edad]['cantidad']))){
                 $edades[$edad]['cantidad'] = $cantidad;
             }else{
                 $edades[$edad]['cantidad'] = $edades[$edad]['cantidad'] + $cantidad;
