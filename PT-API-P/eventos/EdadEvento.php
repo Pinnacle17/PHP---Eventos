@@ -6,33 +6,29 @@
     require("../modelo/ClaseRepartidor.php");
     
     $id_evento = $_GET['id_evento'];
-
-    $boletos = Boleto::obtenerIdBoletoEvento($id_evento);
-    $numerodeboletos = 0;
-    while ($while = mysqli_fetch_array($boletos)){
-        $id_boletos[$numerodeboletos]["id_boleto"] = $while["id_boleto"];
-        $numerodeboletos++;
-    }
-    $resultado = [];
-    for($x=0;$x<$numerodeboletos;$x++){
-        $elementoventa = Venta::buscarelementosventaboleto($id_boletos[$x]["id_boleto"]);
-        if($elementoventa == null){
-            $resultado = null;
-        }else{
-            $cantidadelementoventa = count($elementoventa);
-            for($y = 0; $y<$cantidadelementoventa; $y++){
-                $edad = Venta::Edadventa($elementoventa[$y]["fk_ventaele"]);
-                if($edad != null){
-                    $edad = $edad["edad_ven"];
-                    if(!isset($resultado[$edad]['cantidad'])){
-                        $resultado[$edad]['cantidad'] = intval($elementoventa[$y]["cantidad_bol"]);
-                    }else{
-                        $resultado[$edad]['cantidad'] = $resultado[$edad]['cantidad'] + $elementoventa[$y]["cantidad_bol"];
-                    }
-                }
-            }
-        }
-    }
-    echo json_encode($resultado);
     
+    $consulta = "SELECT venta.edad_ven, sum(venta.cantidad_ven) as cantidad 
+                    FROM ele_ven 
+                    join venta on ele_ven.fk_ventaele=venta.id_venta 
+                    join boleto on ele_ven.fk_boletoele=boleto.id_boleto 
+                    where boleto.fk_evento_bol=".$id_evento." 
+                    group by(edad_ven)
+                    ORDER BY cantidad DESC;";
+    $resultado = BD::consultaSelect($consulta);
+    if(mysqli_num_rows($resultado) >= 1){
+        $elementos = 0;
+        $edades = [];
+        $x=0;
+        while ($while = mysqli_fetch_array($resultado)){
+            $edad = $while["edad_ven"];
+            $cantidad = $while["cantidad"];
+            
+            $edades[$x]["edad"]=$edad;
+            $edades[$x]["cantidad"]=intval($cantidad);
+            $x++;
+        }
+    }else{
+        $edades = null;
+    }
+    echo json_encode($edades)
 ?>
