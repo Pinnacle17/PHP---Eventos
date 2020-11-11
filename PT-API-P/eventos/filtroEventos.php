@@ -7,6 +7,8 @@
     $estado = mysqli_real_escape_string($conexion, $_POST['estado']);
     $precio_min = mysqli_real_escape_string($conexion, $_POST['precioMin']);
     $precio_max = mysqli_real_escape_string($conexion, $_POST['precioMax']);
+    $fecha_inicio = mysqli_real_escape_string($conexion, $_POST['']);
+    $fecha_fin = mysqli_real_escape_string($conexion, $_POST['']);
     $tipo = mysqli_real_escape_string($conexion, $_POST['tipo']);
 
     $cant_filtro = 0;
@@ -20,6 +22,14 @@
     }
     if($precio_max != ''){
         $filtro[$cant_filtro] = " precio_eve <= '$precio_max'";
+        $cant_filtro++;
+    }
+    if($fecha_inicio  != ''){
+        $filtro[$cant_filtro] = " dia_inicio_evento >= '$fecha_inicio'";
+        $cant_filtro++;
+    }
+    if($fecha_fin != ''){
+        $filtro[$cant_filtro] = " dia_conclusion_evento <= '$fecha_fin'";
         $cant_filtro++;
     }
     if($tipo != ''){
